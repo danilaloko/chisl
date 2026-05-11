@@ -1,0 +1,32 @@
+# Build outputs
+/dfp
+/build/
+/cmake-build-*/
+
+# C/C++ intermediates
+*.o
+*.obj
+*.a
+*.so
+*.dylib
+*.dll
+*.exe
+*.out
+
+# CMake generated files
+CMakeCache.txt
+CMakeFiles/
+Makefile
+cmake_install.cmake
+compile_commands.json
+
+# Editor and local OS files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Documents
+*.pdf
