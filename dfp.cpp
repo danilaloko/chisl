@@ -12,20 +12,22 @@ using Matrix = std::vector<std::vector<double>>;
 constexpr double kTiny = 1e-12;
 
 double f(const Vector& x) {
-    // Replace this function with the target function from your assignment.
-    double result = 0.0;
-    for (double value : x) {
-        result += value * value;
+    if (x.size() != 2) {
+        throw std::invalid_argument("The target function expects n = 2.");
     }
-    return result;
+
+    return 4.0 * std::pow(x[0] - 5.0, 2.0) + std::pow(x[1] - 6.0, 2.0);
 }
 
 Vector gradAnalytic(const Vector& x) {
-    Vector result(x.size(), 0.0);
-    for (std::size_t i = 0; i < x.size(); ++i) {
-        result[i] = 2.0 * x[i];
+    if (x.size() != 2) {
+        throw std::invalid_argument("The target analytic gradient expects n = 2.");
     }
-    return result;
+
+    return {
+        8.0 * (x[0] - 5.0),
+        2.0 * (x[1] - 6.0),
+    };
 }
 
 Vector gradNumeric(const Vector& x, double h = 1e-6) {
